@@ -1,0 +1,73 @@
+body {
+	/*font-family: 'Roboto', sans-serif;*/
+	font-family: 'Lato', sans-serif;
+	background: #222B30;
+	color: #C3C0CA;
+	margin: 0;
+  	padding: 0;
+  	height: 100%;
+}
+
+#map { 
+	width:75vw;
+	height:100vh;
+	float:left;
+}
+
+.controlPanel {
+	width:24vw;
+	height:100vh;
+	background-color:#222B30;
+	float:left;
+	color:white;
+	font-size:1.1em;
+	/*border:2px solid #43BFE0;*/
+}
+
+.controlPanel p { 
+	display: inline 
+}
+
+.controlPanel h3 { 
+	display: inline 
+}
+.controlPanel h2 { 
+	display: inline-block;
+	margin:0;
+	padding-left:9px;
+}
+
+
+.header{
+	text-align: center;
+	margin:none;
+	padding:15px 5px 15px 5px;
+	background-color: #266490;
+	color:white;
+	font-size:2em;
+	font-weight:bold;
+}
+.subheader {
+	padding:5px;
+	background-color: #3386C0;
+	color:white;
+	font-size: 1.6em;
+	text-align: center;
+}
+
+.content {
+	padding:5px 5px 5px 10px;
+}
+
+.button {
+	color: #4ABFDE;
+	border: 1px solid #4ABFDE;
+	background:none;
+	font-size:1.1em;
+	border-radius:3px;
+}
+
+#marker {
+	fill: yellow;
+}
+

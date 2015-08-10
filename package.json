@@ -1,0 +1,21 @@
+{
+  "name": "citibike",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^0.4.2",
+    "express": "^4.13.3",
+    "fast-csv": "^0.6.0",
+    "fs": "0.0.2",
+    "moment": "^2.10.6",
+    "path": "^0.11.14",
+    "polyline": "^0.2.0",
+    "request": "^2.60.0"
+  }
+}
