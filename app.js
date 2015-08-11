@@ -91,7 +91,7 @@ app.get('/17017trips', function(req, res, next){
 	})
 	filestream.pipe(converter);
 })
-
-app.listen(process.env.PORT || 3000, function() {
-	console.log("The server is listening on port ", process.env.PORT || 3000);
+var port = process.env.PORT || 3000
+app.listen(port, function() {
+	console.log("The server is listening on port ", port);
 })
