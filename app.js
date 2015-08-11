@@ -6,7 +6,6 @@ var polyline = require("polyline");
 var path = require("path");
 
 
-var port = 3000;
 
 app.use(express.static(__dirname +'/public'));
 
@@ -93,6 +92,6 @@ app.get('/17017trips', function(req, res, next){
 	filestream.pipe(converter);
 })
 
-app.listen(port, function() {
-	console.log("The server is listening on port ", port);
+app.listen(process.env.PORT || 3000, function() {
+	console.log("The server is listening on port ", process.env.PORT || 3000);
 })
