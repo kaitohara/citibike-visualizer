@@ -7,6 +7,8 @@ This is a visualization project powered by D3, LeafletJS and the Google Directio
 # Demo
 You can check out the application at https://salty-eyrie-4950.herokuapp.com/
 
+Enjoy!
+
 # Features
 * View all trips taken on June 1st, 2015
 * Follow a single Citibike's (#17017) journey through NYC during June, 2015
