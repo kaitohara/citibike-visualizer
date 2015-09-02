@@ -15,8 +15,6 @@ Enjoy!
 * Keep track of stats such as the # of total trips taken, active trips, and start+end stations
 * Each completed trip doesn't completely dissappear from the map, allowing the user to see frequently travelled paths over time
 
-Unfortunately, due to the size of the dataset, the visualizer is currently limited to a narrow timeframe (June 2015)
-
 #Some Challenges
 1. Managaging Trip Data
   * Obtaining the coordinates necessary for animating each path, then appending the information to the original JSON from Citibike proved to be challenging, especially because the Google Directions API limits the number of queries per second and day. I made requests to the API for each row in Citibike's original CSV file, extracted the polyline data from the response GEOJSON, then compiled it all back into a CSV file for D3 to use.
