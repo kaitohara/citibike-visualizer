@@ -17,7 +17,6 @@ var transform = d3.geo.transform({point: projectPoint}),
 path = d3.geo.path().projection(transform);
 
 
-
 d3.json('/trips', function(geojson){
 
 	var feature = g.selectAll("path")
@@ -32,6 +31,8 @@ d3.json('/trips', function(geojson){
 	.attr("fill", "none")
 	.attr("opacity", "0")
 
+
+	//Adding a 'blip' to represent the bike
 	
 	// var points = g.selectAll("circle")
 	// .data(geojson.features)
@@ -82,6 +83,8 @@ d3.json('/trips', function(geojson){
 		var bounds = path.bounds(geojson),
 		topLeft = bounds[0],
 		bottomRight = bounds[1];
+		console.log('bounds', bounds)
+		console.log('topLeft', topLeft)
 
 		svg .attr("width", bottomRight[0] - topLeft[0])
 		.attr("height", bottomRight[1] - topLeft[1])
@@ -99,14 +102,11 @@ d3.json('/trips', function(geojson){
 	var activeRiders = 0;
 
 	function render(){
-		// intervalTime = 105*(animationSpeed/2); //intervalTime (how fast a 'minute' of trip data passes) is dependent on line animation speed
 		var timer = setInterval(function(){
 
 			for (var i = 0; i < geojson.features.length ; i++){
 				var tripStart = geojson.features[i].properties.startTime
 				startTime = new Date(tripStart)*.0005
-				// console.log('trip '+i+', ' +startTime)
-
 				
 				if (startTime === time){
 					tripCount++;
@@ -203,7 +203,6 @@ d3.json('/17017trips', function(geojson){
 		})
 		.ease("linear")
 		.attr("stroke-dashoffset", 0)
-		// .attr("stroke-dasharray", tweenDash)
 		.transition()
 		.style('opacity', .08)
 		.duration(100)
@@ -247,7 +246,6 @@ d3.json('/17017trips', function(geojson){
 		g2   .attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
 
 		feature.attr("d", path);
-		// points.attr("d", path);
 	}
 
 	var time = new Date("6/1/2015  12:00:00 AM")*.0005
@@ -260,7 +258,6 @@ d3.json('/17017trips', function(geojson){
 
 
 	$('#startUniqueAnimation').click(function(){
-
 		$('.17017time').text(moment(geojson.features[0].properties.startTime).format('h:mm a'));
 		$('.17017date').text(moment(geojson.features[0].properties.startTime).format('MMMM Do YYYY'));
 		$('.startStation').text(geojson.features[0].properties.startStationName)
@@ -269,13 +266,12 @@ d3.json('/17017trips', function(geojson){
 		$('.17017numTrips').text(tripCount17017)
 		animate(0)
 	});
-	// render()
 
 })
 
 
-
 function projectPoint(x,y) {
 	var point = map.latLngToLayerPoint(new L.LatLng(y,x));
+	// console.log('point', point)
 	this.stream.point(point.x, point.y);
 }
