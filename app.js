@@ -5,8 +5,6 @@ var Converter = require("csvtojson").Converter;
 var polyline = require("polyline");
 var path = require("path");
 
-
-
 app.use(express.static(__dirname +'/public'));
 
 app.get('/', function(req, res, next){
@@ -18,7 +16,6 @@ app.get('/trips', function(req, res, next){
 	var filestream = fs.createReadStream("./data/test.csv");
 	var converter = new Converter({ constructResult:true });
 	converter.on("end_parsed", function(jsonObj){
-		console.log(jsonObj)
 		var geojson = {type:"FeatureCollection", features: []}
 		// jsonObj.forEach(function(trip){
 		// 	var feature = {};
@@ -29,6 +26,7 @@ app.get('/trips', function(req, res, next){
 			//decode polyline for overall trip to get micro coordinates for trip
 			//altered polyline.js to return [long x lat] instead of [lat x long] b/c geojson and googlemaps use different orders for coordinates
 			var routeCoordinates = polyline.decode(jsonObj[i].polyline)
+			console.log('routeCoordinates', routeCoordinates)
 			
 			feature.geometry = {type:"LineString", coordinates: routeCoordinates}
 			feature.properties = {
@@ -56,7 +54,6 @@ app.get('/17017trips', function(req, res, next){
 	var filestream = fs.createReadStream("./data/17017directions.csv");
 	var converter = new Converter({ constructResult:true });
 	converter.on("end_parsed", function(jsonObj){
-		console.log(jsonObj)
 		var geojson = {type:"FeatureCollection", features: []}
 		// jsonObj.forEach(function(trip){
 		// 	var feature = {};
